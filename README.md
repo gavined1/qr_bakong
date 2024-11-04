@@ -27,20 +27,64 @@ This is a simple Flask application that generates QR codes for Bakong payments. 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/gavined1/qr_bakong.git
-cd qr_bakong
+git clone https://github.com/your-username/bakong-qr-code-generator.git
+cd bakong-qr-code-generator
 ```
 ### Set up a Virtual Environment
-- Create a virtual environment: This step will create an isolated environment for your project dependencies.
+Create a virtual environment: This step will create an isolated environment for your project dependencies.
 ```bash
 python -m venv .venv
 ```
-### Activate the virtual environment:
-- On Windows
+Activate the virtual environment:
+
+On Windows:
 ```bash
 .venv\Scripts\activate
 ```
-- On macOS/Linux
+On macOS/Linux:
 ```bash
 source .venv/bin/activate
 ```
+Once activated, your command prompt will change to indicate that you're now working inside the virtual environment.
+
+### Install Dependencies
+After activating your virtual environment, install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+### Environment Variables
+
+Create a .env file in the root directory of the project and add the following variable:
+```
+BAKONG_DEV_TOKEN=your_bakong_developer_token_here
+```
+### Run Your Flask Application: 
+You can start your Flask application by using one of the following methods:
+
+- Using the Flask CLI: 
+If you have set the FLASK_APP environment variable to point to your application file (for example, app.py), you can run:
+```bash
+flask run
+```
+If you haven't set it, you can do so by running:
+
+- On Windows:
+```bash
+set FLASK_APP=app.py
+```
+- On macOS/Linux:
+```bash
+export FLASK_APP=app.py
+```
+### Running the Script Directly: 
+If you prefer or if your script has a main block, you can run it directly with Python:
+
+```bash
+python app.py
+```
+The server will start on "http://localhost:5000".
+
+
+
+
