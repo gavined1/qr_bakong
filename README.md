@@ -69,11 +69,11 @@ flask run
 ```
 If you haven't set it, you can do so by running:
 
-- On Windows:
+On Windows:
 ```bash
 set FLASK_APP=app.py
 ```
-- On macOS/Linux:
+On macOS/Linux:
 ```bash
 export FLASK_APP=app.py
 ```
