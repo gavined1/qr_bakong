@@ -23,13 +23,13 @@ khqr = KHQR(bakong_dev_token)
 @app.route('/api/qr-code')
 def qr_code():
     qr_data = khqr.create_qr(
-        bank_account='tang_soklim1@trmc',
-        merchant_name='Tang Soklim',
+        bank_account='name@trmc',
+        merchant_name='Name',
         merchant_city='Phnom Penh',
         amount=4000,
         currency='KHR',
         store_label='Gavin Shop',
-        phone_number='85586873125',
+        phone_number='855123456789',
         bill_number='TRX019283775',
         terminal_label='Cashier-01',
         static=False
