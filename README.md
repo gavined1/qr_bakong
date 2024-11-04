@@ -29,3 +29,18 @@ This is a simple Flask application that generates QR codes for Bakong payments. 
 ```bash
 git clone https://github.com/gavined1/qr_bakong.git
 cd qr_bakong
+```
+### Set up a Virtual Environment
+- Create a virtual environment: This step will create an isolated environment for your project dependencies.
+```bash
+python -m venv .venv
+```
+### Activate the virtual environment:
+- On Windows
+```bash
+.venv\Scripts\activate
+```
+- On macOS/Linux
+```bash
+source .venv/bin/activate
+```
