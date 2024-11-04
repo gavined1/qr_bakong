@@ -35,7 +35,7 @@ Create a virtual environment: This step will create an isolated environment for 
 ```bash
 python -m venv .venv
 ```
-Activate the virtual environment:
+### Activate the virtual environment:
 
 On Windows:
 ```bash
