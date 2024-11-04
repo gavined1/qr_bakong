@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 from dotenv import load_dotenv
@@ -7,9 +7,8 @@ import qrcode
 from io import BytesIO
 import base64
 
-app = Flask(__name__)
-# Enable CORS for requests from localhost
-CORS(app, resources={r"/api/*": {"origins": ["http://localhost:8000", "http://localhost:5000"], "methods": ["GET", "POST"]}})
+app = Flask(__name__, static_folder='.')  # Set static folder to the root
+CORS(app, resources={r"/api/*": {"origins": ["*"], "methods": ["GET", "POST"]}})
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -23,13 +22,13 @@ khqr = KHQR(bakong_dev_token)
 @app.route('/api/qr-code')
 def qr_code():
     qr_data = khqr.create_qr(
-        bank_account='name@trmc',
-        merchant_name='Name',
+        bank_account='tang_soklim1@trmc',
+        merchant_name='Tang Soklim',
         merchant_city='Phnom Penh',
         amount=4000,
         currency='KHR',
         store_label='Gavin Shop',
-        phone_number='855123456789',
+        phone_number='85586873125',
         bill_number='TRX019283775',
         terminal_label='Cashier-01',
         static=False
@@ -43,5 +42,9 @@ def qr_code():
     qr_code_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
     return jsonify({'image': qr_code_base64})
 
+@app.route('/')
+def serve_index():
+    return send_from_directory('.', 'index.html')  # Serve the HTML file
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
