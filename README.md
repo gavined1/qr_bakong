@@ -70,7 +70,8 @@ BAKONG_DEV_TOKEN=your_bakong_developer_token_here
 ### Run Your Flask Application: 
 You can start your Flask application by using one of the following methods:
 
-- Using the Flask CLI: 
+- Using the Flask CLI:
+
 If you have set the FLASK_APP environment variable to point to your application file (for example, app.py), you can run:
 ```bash
 flask run
