@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Display</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      #qrcode {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>QR Code Display</h1>
+    <button id="fetch-qr-code">Fetch QR Code</button>
+    <div id="qrcode"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#fetch-qr-code").click(function () {
+          // Fetch the QR code image from the backend
+          $.get("http://localhost:5000/api/qr-code", function (data) {
+            $("#qrcode").html(
+              '<img src="data:image/png;base64,' +
+                data.image +
+                '" alt="QR Code"/>'
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
