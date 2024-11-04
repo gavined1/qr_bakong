@@ -94,7 +94,20 @@ If you prefer or if your script has a main block, you can run it directly with P
 python app.py
 ```
 
-The server will start on "http://localhost:5000".
+### Serve Your Frontend Files
+
+Open another terminal window in a different directory (where your index.html is located).
+Run the HTTP server on a different port (like 8000):
+
+```bash
+python -m http.server 8000
+```
+
+### Access Your Application
+Open your web browser and navigate to:
+```bash
+http://localhost:8000/index.html
+```
 
 
 
