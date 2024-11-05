@@ -8,7 +8,8 @@ from io import BytesIO
 import base64
 
 app = Flask(__name__, static_folder='.')  # Set static folder to the root
-CORS(app, resources={r"/api/*": {"origins": ["*"], "methods": ["GET", "POST"]}})
+CORS(app, resources={r"/api/qr-code*": {"origins": ["https://spiffy-selkie-449161.netlify.app"], "methods": ["GET", "POST"]}})
+
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -47,4 +48,4 @@ def serve_index():
     return send_from_directory('.', 'index.html')  # Serve the HTML file
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8080)

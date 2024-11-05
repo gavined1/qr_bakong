@@ -24,17 +24,23 @@
     <script>
       $(document).ready(function () {
         $("#fetch-qr-code").click(function () {
-          // Fetch the QR code image from the backend using Ngrok URL
           $.get(
-            "https://c553-103-115-175-186.ngrok-free.app/api/qr-code",
+            "https://2485-103-115-175-186.ngrok-free.app/api/qr-code",
             function (data) {
-              $("#qrcode").html(
-                '<img src="data:image/png;base64,' +
-                  data.image +
-                  '" alt="QR Code"/>'
-              );
+              if (data.image) {
+                // If data.image exists, set it as the src for the QR code
+                $("#qrcode").html(
+                  '<img src="data:image/png;base64,' +
+                    data.image +
+                    '" alt="QR Code"/>'
+                );
+              } else {
+                console.error("QR Code data is undefined or null.");
+              }
             }
-          );
+          ).fail(function () {
+            console.error("Failed to fetch the QR code.");
+          });
         });
       });
     </script>
