@@ -27,8 +27,8 @@ This is a simple Flask application that generates QR codes for Bakong payments. 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/bakong-qr-code-generator.git
-cd bakong-qr-code-generator
+git clone https://github.com/gavined1/qr_bakong.git
+cd qr_bakong
 ```
 ### Set up a Virtual Environment
 
